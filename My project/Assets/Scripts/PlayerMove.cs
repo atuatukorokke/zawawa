@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
@@ -8,32 +8,53 @@ public class PlayerMove : MonoBehaviour
     [Header("最大HP")]
     [SerializeField] private int maxHP = 5;
 
-    private int currentHP;
-    private Rigidbody2D rb;
-    private Vector2 moveInput;
+    [Header("回転力")]
+    [SerializeField] float rotateSpeed = 180f;
+
+    private int currentHP; // プレイヤーのHP
+    private Rigidbody2D rb; // Rigidbody2Dコンポーネントへの参照
+    private Vector2 moveInput; // プレイヤーの移動入力を格納する変数
 
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        rb.gravityScale = 0f;
+        rb.gravityScale = 0f; 
     }
-
+    // 🔥 StartでHPを初期化
     void Start()
     {
         currentHP = maxHP;
     }
-
+    // 🔥 Updateで移動入力を取得
     void Update()
     {
-        moveInput.x = Input.GetAxisRaw("Horizontal");
-        moveInput.y = Input.GetAxisRaw("Vertical");
+        // ここではWASDキーで移動入力を取得
+        moveInput = Vector2.zero;
+        // 矢印キーで回転するためにインプットキーコードに変更
+        if (Input.GetKey(KeyCode.W)) moveInput.y = 1;
+        if (Input.GetKey(KeyCode.S)) moveInput.y = -1;
+        if (Input.GetKey(KeyCode.D)) moveInput.x = 1;
+        if (Input.GetKey(KeyCode.A)) moveInput.x = -1;
         moveInput = moveInput.normalized;
+
+        // ---------------- 回転処理 ---------------
+        float rotateInput = 0f;
+        if (Input.GetKey(KeyCode.LeftArrow)) rotateInput = 1;
+        if (Input.GetKey(KeyCode.RightArrow)) rotateInput = -1;
+
+        transform.Rotate(Vector3.forward * rotateInput * rotateSpeed * Time.deltaTime);
     }
 
+
+    // 🔥 FixedUpdateで物理演算を使って移動
     void FixedUpdate()
     {
         rb.linearVelocity = moveInput * moveSpeed;
     }
+    /// <summary>
+    /// プレイヤーが衝突したときの処理
+    /// </summary>
+    /// <param name="other"></param>
     // 🔥 Bulletタグに当たったらダメージ
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -43,6 +64,10 @@ public class PlayerMove : MonoBehaviour
             TakeDamage(1);
         }
     }
+    /// <summary>
+    /// プレイヤーがダメージを受ける処理
+    /// </summary>
+    /// <param name="damage"></param>
     // 🔥 外部から呼ばれるダメージ処理
     public void TakeDamage(int damage)
     {
