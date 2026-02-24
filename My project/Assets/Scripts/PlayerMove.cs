@@ -1,85 +1,99 @@
 using UnityEngine;
 
+// このスクリプトは
+// プレイヤーの「移動」「回転」「HP管理」をするもの
 public class PlayerMove : MonoBehaviour
 {
     [Header("移動速度")]
+    // プレイヤーがどれくらいの速さで動くか
     [SerializeField] private float moveSpeed = 5f;
 
     [Header("最大HP")]
+    // プレイヤーの最大体力
     [SerializeField] private int maxHP = 5;
 
-    [Header("回転力")]
-    [SerializeField] float rotateSpeed = 180f;
+    [Header("回転の速さ")]
+    // 左右キーでどれくらい速く回転するか
+    [SerializeField] private float rotateSpeed = 180f;
 
-    private int currentHP; // プレイヤーのHP
-    private Rigidbody2D rb; // Rigidbody2Dコンポーネントへの参照
-    private Vector2 moveInput; // プレイヤーの移動入力を格納する変数
+    // 現在のHP（ゲーム中に変化する）
+    private int currentHP;
+
+    // Rigidbody2D（物理で動かすために使う）
+    private Rigidbody2D rb;
+
+    // 入力された移動方向を入れる変数
+    private Vector2 moveInput;
 
     void Awake()
     {
+        // Rigidbody2Dを取得する
         rb = GetComponent<Rigidbody2D>();
-        rb.gravityScale = 0f; 
+
+        // 重力を0にする（上から落ちないようにする）
+        rb.gravityScale = 0f;
     }
-    // 🔥 StartでHPを初期化
+
     void Start()
     {
+        // ゲーム開始時にHPを最大値にする
         currentHP = maxHP;
     }
-    // 🔥 Updateで移動入力を取得
+
     void Update()
     {
-        // ここではWASDキーで移動入力を取得
+        // ---- 移動入力の取得 ----
+
+        // 毎フレームいったん0にする
         moveInput = Vector2.zero;
-        // 矢印キーで回転するためにインプットキーコードに変更
+
+        // WASDキーで上下左右に移動
         if (Input.GetKey(KeyCode.W)) moveInput.y = 1;
         if (Input.GetKey(KeyCode.S)) moveInput.y = -1;
         if (Input.GetKey(KeyCode.D)) moveInput.x = 1;
         if (Input.GetKey(KeyCode.A)) moveInput.x = -1;
+
+        // 斜め移動が速くなりすぎないように長さを1にそろえる
         moveInput = moveInput.normalized;
 
-        // ---------------- 回転処理 ---------------
+        // ---- 回転処理 ----
+
         float rotateInput = 0f;
+
+        // 左矢印で左回転
         if (Input.GetKey(KeyCode.LeftArrow)) rotateInput = 1;
+
+        // 右矢印で右回転
         if (Input.GetKey(KeyCode.RightArrow)) rotateInput = -1;
 
+        // 実際に回転させる
+        // Vector3.forward は「Z軸方向」
         transform.Rotate(Vector3.forward * rotateInput * rotateSpeed * Time.deltaTime);
     }
 
-
-    // 🔥 FixedUpdateで物理演算を使って移動
     void FixedUpdate()
     {
+        // 物理演算のタイミングで移動させる
+        // 入力方向 × スピード = 実際の移動速度
         rb.linearVelocity = moveInput * moveSpeed;
     }
-    /// <summary>
-    /// プレイヤーが衝突したときの処理
-    /// </summary>
-    /// <param name="other"></param>
-    // 🔥 Bulletタグに当たったらダメージ
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        Debug.Log("衝突した");
-        if (other.CompareTag("Bullet"))
-        {
-            TakeDamage(1);
-        }
-    }
+
     /// <summary>
     /// プレイヤーがダメージを受ける処理
+    /// 他のスクリプト（弾など）から呼ばれる
     /// </summary>
-    /// <param name="damage"></param>
-    // 🔥 外部から呼ばれるダメージ処理
     public void TakeDamage(int damage)
     {
+        // HPを減らす
         currentHP -= damage;
+
         Debug.Log("ダメージ！ 残りHP: " + currentHP);
 
+        // HPが0以下になったら死亡
         if (currentHP <= 0)
         {
             Debug.Log("プレイヤー死亡");
             Destroy(gameObject);
         }
     }
-    
-
 }
