@@ -316,6 +316,10 @@ PrefabInstance:
       propertyPath: rotateSpeed
       value: 50
       objectReference: {fileID: 0}
+    - target: {fileID: 5377191356134510289, guid: 959976be0ed14674b813a7ba7060df68, type: 3}
+      propertyPath: gameOverPanel
+      value: 
+      objectReference: {fileID: 582407357}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
