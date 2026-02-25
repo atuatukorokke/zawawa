@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 
-// プレイヤーに向かって弾を撃つ敵（追尾なし）
 public class EnemyShooter : MonoBehaviour
 {
     [Header("弾のプレハブ")]
@@ -9,34 +8,59 @@ public class EnemyShooter : MonoBehaviour
     [Header("何秒ごとに撃つか")]
     [SerializeField] private float fireInterval = 2f;
 
+    [Header("何秒ごとに向きを更新するか")]
+    [SerializeField] private float rotateInterval = 0.1f;
+
     [Header("弾のスピード")]
     [SerializeField] private float bulletSpeed = 5f;
 
-    private float timer;
+    private float fireTimer;
+    private float rotateTimer;
+
+    private GameObject player;
+
+    void Start()
+    {
+        // 毎回Findしないように一度だけ取得（軽量化）
+        player = GameObject.FindGameObjectWithTag("Player");
+    }
 
     void Update()
     {
-        timer += Time.deltaTime;
+        if (player == null) return;
 
-        if (timer >= fireInterval)
+        fireTimer += Time.deltaTime;
+        rotateTimer += Time.deltaTime;
+
+        // ⭐ 向きだけ0.1秒ごとに更新
+        if (rotateTimer >= rotateInterval)
+        {
+            RotateToPlayer();
+            rotateTimer = 0f;
+        }
+
+        // ⭐ 弾は2秒ごとに発射
+        if (fireTimer >= fireInterval)
         {
             Shoot();
-            timer = 0f;
+            fireTimer = 0f;
         }
+    }
+
+    void RotateToPlayer()
+    {
+        Vector2 direction =
+            (player.transform.position - transform.position).normalized;
+
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0, 0, angle);
     }
 
     void Shoot()
     {
-        // 🔥 Playerタグのオブジェクトを取得
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-
-        if (player == null) return; // プレイヤーがいなければ撃たない
-
-        // 🔥 プレイヤー方向を計算
         Vector2 direction =
             (player.transform.position - transform.position).normalized;
 
-        // 少し前にずらして生成
         Vector2 spawnPos =
             (Vector2)transform.position + direction * 1.2f;
 
@@ -49,7 +73,6 @@ public class EnemyShooter : MonoBehaviour
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         rb.linearVelocity = direction * bulletSpeed;
 
-        // 所有者登録（必要なら）
         Bullet bulletScript = bullet.GetComponent<Bullet>();
         if (bulletScript != null)
         {
