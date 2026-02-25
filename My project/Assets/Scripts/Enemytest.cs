@@ -34,4 +34,16 @@ public class Enemytest : MonoBehaviour
         // 最初の位置 + 左右の動き で新しい位置を決める
         transform.position = startPos + new Vector3(x, 0, 0);
     }
+
+    // 敵が倒されたときに呼ばれる関数
+    public void Die()
+    {
+        Debug.Log("Die()が呼ばれた！");
+
+        // シーン内にあるNextSceneOnEnemyClearスクリプトを見つけて、EnemyDefeated関数を呼び出す
+        FindFirstObjectByType<NextSceneOnEnemyClear>().EnemyDefeated();
+
+        // 敵オブジェクトを消す
+        Destroy(gameObject);
+    }
 }
