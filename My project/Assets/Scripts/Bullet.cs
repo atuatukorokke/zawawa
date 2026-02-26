@@ -101,12 +101,12 @@ public class Bullet : MonoBehaviour
     /// </summary>
     void OnCollisionEnter2D(Collision2D collision)
     {
-        // 🟦 Shield（盾）に当たったら加速する
-        if (collision.collider.CompareTag("Shield"))
-        {
-            SpeedUp();
-            return; // 他の処理はしない
-        }
+        //// 🟦 Shield（盾）に当たったら加速する
+        //if (collision.collider.CompareTag("Shield"))
+        //{
+        //    SpeedUp();
+        //    return; // 他の処理はしない
+        //}
 
         // 🔴 Playerに当たったらダメージ
         if (collision.collider.CompareTag("Player"))
@@ -119,7 +119,7 @@ public class Bullet : MonoBehaviour
                 player.TakeDamage(1);
             }
 
-            Destroy(gameObject);
+            //Destroy(gameObject);
             return;
         }
 

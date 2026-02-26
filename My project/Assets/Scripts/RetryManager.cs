@@ -6,7 +6,8 @@ public class RetryManager : MonoBehaviour
     public void Retry()
     {
         Time.timeScale = 1f;    
-        // ¡ŠJ‚¢‚Ä‚¢‚éƒV[ƒ“‚ğÄ“Ç‚İ‚İ
+        Debug.Log("å†èª­ã¿è¾¼ã¿ã‚’ã—ãŸ");
+        // ä»Šé–‹ã„ã¦ã„ã‚‹ã‚·ãƒ¼ãƒ³ã‚’å†èª­ã¿è¾¼ã¿
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
