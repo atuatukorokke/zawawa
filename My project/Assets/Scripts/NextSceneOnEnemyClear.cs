@@ -4,29 +4,57 @@ using UnityEngine.SceneManagement;
 public class NextSceneOnEnemyClear : MonoBehaviour
 {
     int enemyCount;
+    bool initialized = false;
 
-    void Start()
+    private void OnEnable()
     {
-        enemyCount = GameObject.FindGameObjectsWithTag("Enemy").Length;
-
+        EnemyDeathNotifier.OnEnemySpawned += OnEnemySpawned;
         EnemyDeathNotifier.OnEnemyDestroyed += OnEnemyDestroyed;
     }
 
-    void OnDestroy()
+    private void OnDisable()
     {
         EnemyDeathNotifier.OnEnemyDestroyed -= OnEnemyDestroyed;
     }
 
+    void Start()
+    {
+        enemyCount = GameObject.FindGameObjectsWithTag("Enemy").Length;
+        initialized = true;
+        Debug.Log("初期敵数: " + enemyCount);
+    }
+
+    void OnEnemySpawned() 
+    { 
+        enemyCount++; Debug.Log("敵が出現！ 現在の敵数: " + enemyCount); 
+    }
+
     void OnEnemyDestroyed()
     {
-        enemyCount--;
-        Debug.Log("敵が倒れた通知を受け取った！ 残り: " + enemyCount);
+        // まだ初期化前 or もう使わないタイミングなら無視
+        if (!initialized) 
+        { 
+            Debug.LogWarning("初期化前/無効状態で OnEnemyDestroyed が呼ばれたので無視しました"); 
+            return; 
+        }
 
         if (enemyCount <= 0)
         {
+            Debug.LogWarning("enemyCount が 0 以下。初期化が正しく行われていない可能性があります。");
+            return;
+        }
+
+        enemyCount--;
+        Debug.Log("敵が倒れた通知を受け取った！ 残り: " + enemyCount);
+
+        if (enemyCount == 0)
+        {
+            // これ以降の通知は無視したいので無効化
+            initialized = false;
             LoadNextScene();
         }
     }
+
 
     void LoadNextScene()
     {
