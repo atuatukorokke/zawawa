@@ -13,6 +13,9 @@ public class EnemyShooter : MonoBehaviour
 
     [Header("発射位置オフセット距離")]
     [SerializeField] private float shootOffset = 1.2f;
+
+    [SerializeField] private GameObject muzzleFlashPrefab;
+    
     private float fireTimer;
     private float rotateTimer;
 
@@ -68,6 +71,16 @@ public class EnemyShooter : MonoBehaviour
             spawnPos,
             Quaternion.identity
         );
+
+        // ⭐ マズルフラッシュ生成（ここ追加！）
+        if (muzzleFlashPrefab != null)
+        {
+            Instantiate(
+                muzzleFlashPrefab,
+                spawnPos,
+                transform.rotation
+            );
+        }
 
         Bullet bulletScript = bullet.GetComponent<Bullet>();
         if (bulletScript != null)

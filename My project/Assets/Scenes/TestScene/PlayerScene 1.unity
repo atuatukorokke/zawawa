@@ -1252,7 +1252,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1442910276608699782, guid: 45e13f343668e9c4c881a2e0a1d469be, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 2.835
+      value: 2.84
       objectReference: {fileID: 0}
     - target: {fileID: 2322645134809399217, guid: 45e13f343668e9c4c881a2e0a1d469be, type: 3}
       propertyPath: m_Sprite
@@ -1951,22 +1951,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1442910276608699782, guid: 45e13f343668e9c4c881a2e0a1d469be, type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 2.835
-      objectReference: {fileID: 0}
-    - target: {fileID: 2322645134809399217, guid: 45e13f343668e9c4c881a2e0a1d469be, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 8596640243658272642, guid: f02319a3c4541e647941729b9153808e, type: 3}
     - target: {fileID: 3845730291890463803, guid: 45e13f343668e9c4c881a2e0a1d469be, type: 3}
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
-    - target: {fileID: 7989663459749636897, guid: 45e13f343668e9c4c881a2e0a1d469be, type: 3}
-      propertyPath: bulletPrefab
-      value: 
-      objectReference: {fileID: 2490399557829209723, guid: d0760d8dd7eaa2247996a136ff16914b, type: 3}
     - target: {fileID: 8670624320346424862, guid: 45e13f343668e9c4c881a2e0a1d469be, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.49

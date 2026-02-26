@@ -108,6 +108,7 @@ MonoBehaviour:
   fireInterval: 2
   rotateInterval: 0.1
   shootOffset: 1.2
+  muzzleFlashPrefab: {fileID: 4961127315532690893, guid: 87c7d550745521345a278579a0bf9773, type: 3}
 --- !u!61 &1442910276608699782
 BoxCollider2D:
   m_ObjectHideFlags: 0
