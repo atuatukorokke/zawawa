@@ -14,6 +14,8 @@ public class GimmickBeamController : MonoBehaviour
 
 
     private bool stretching = true;
+    private bool skipDelta = false;
+
 
     void Start()
     {
@@ -49,11 +51,19 @@ public class GimmickBeamController : MonoBehaviour
 
             // 再び伸びるフェーズへ
             stretching = true;
+
+            skipDelta = true;  // ★ このフレームは位置補正しない
         }
 
         // 下端固定で上に伸びるように位置補正
-        float delta = (scale.y - oldHeight) / 4f;
-        transform.position += new Vector3(0, delta, 0);
+        if (!skipDelta)
+        {
+            float delta = (scale.y - oldHeight) / 2f;
+            transform.position += new Vector3(0, delta, 0);
+        }
+
+        skipDelta = false; // 次のフレームからは通常処理
+
 
         transform.localScale = scale;
 
@@ -72,20 +82,17 @@ public class GimmickBeamController : MonoBehaviour
         // 🟦 Shield（盾）に当たったらビームが止まる
         if (collision.collider.CompareTag("Shield"))
         {
-            // スケールをリセット
             Vector3 scale = transform.localScale;
             scale.y = minScaleY;
             transform.localScale = scale;
-            // 左に1移動
+
             transform.position = new Vector3(transform.position.x - 1f, lowPositionY, transform.position.z);
 
-            
-            
+            stretching = true;
 
-            //現在のビームを消して次のビーム生成
-            //generator.Revive();
-            //Destroy(gameObject);
+            skipDelta = true;  // ★ このフレームは位置補正しない
         }
+
 
         if (collision.collider.CompareTag("Player"))
         {
