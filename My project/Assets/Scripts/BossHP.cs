@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class BossHP : MonoBehaviour
 {
-    [SerializeField] private float BossHels = 50f;
+    [SerializeField] private float BossHels = 5f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -14,8 +14,9 @@ public class BossHP : MonoBehaviour
     {
         if (BossHels <= 0 ) 
         {
+            //自分殺し
             Debug.Log("Boss Destroy");
-            this.gameObject.SetActive(false);
+            Destroy(gameObject);
         }
         if (Input.GetKey(KeyCode.F)) Destroy(gameObject);
     }
