@@ -20,16 +20,16 @@ public class GimmickBeamGenerator : MonoBehaviour
                 this.delta = 0;
                 Vector3 spawnPos = new Vector3(9, -5, 0);
                 spawnedObject = Instantiate(gimmickBeam, spawnPos, Quaternion.identity);
-                // oŒ»ˆÊ’u‚ğw’è‚µ‚Ä¶¬
+                // å‡ºç¾ä½ç½®ã‚’æŒ‡å®šã—ã¦ç”Ÿæˆ
 
                 GimmickBeamController controller = spawnedObject.GetComponent<GimmickBeamController>(); 
                 controller.generator = this;
 
 
-                // ‰ŠúƒXƒP[ƒ‹İ’è
-                spawnedObject.transform.localScale = new Vector3(1f, 1f, 0f);
+                // åˆæœŸã‚¹ã‚±ãƒ¼ãƒ«è¨­å®š
+                //spawnedObject.transform.localScale = new Vector3(1f, 1f, 0f);
 
-                //‰æ–Ê“à‚É‘¶İ‚·‚éƒr[ƒ€‚Í1‚Â‚Æ‚·‚é
+                //ç”»é¢å†…ã«å­˜åœ¨ã™ã‚‹ãƒ“ãƒ¼ãƒ ã¯1ã¤ã¨ã™ã‚‹
                 fire = true;
             } 
         }
