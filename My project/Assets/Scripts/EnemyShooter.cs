@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 public class EnemyShooter : MonoBehaviour
 {
@@ -11,9 +11,8 @@ public class EnemyShooter : MonoBehaviour
     [Header("何秒ごとに向きを更新するか")]
     [SerializeField] private float rotateInterval = 0.1f;
 
-    [Header("弾のスピード")]
-    [SerializeField] private float bulletSpeed = 5f;
-
+    [Header("発射位置オフセット距離")]
+    [SerializeField] private float shootOffset = 1.2f;
     private float fireTimer;
     private float rotateTimer;
 
@@ -62,7 +61,7 @@ public class EnemyShooter : MonoBehaviour
             (player.transform.position - transform.position).normalized;
 
         Vector2 spawnPos =
-            (Vector2)transform.position + direction * 1.2f;
+            (Vector2)transform.position + direction * shootOffset;
 
         GameObject bullet = Instantiate(
             bulletPrefab,
@@ -70,12 +69,10 @@ public class EnemyShooter : MonoBehaviour
             Quaternion.identity
         );
 
-        Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-        rb.linearVelocity = direction * bulletSpeed;
-
         Bullet bulletScript = bullet.GetComponent<Bullet>();
         if (bulletScript != null)
         {
+            bulletScript.SetDirection(direction);
             bulletScript.SetOwner(gameObject);
         }
     }
