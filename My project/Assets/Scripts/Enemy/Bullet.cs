@@ -126,6 +126,7 @@ public class Bullet : MonoBehaviour
         // 🟣 Enemyに当たったら敵を破壊
         if (collision.collider.CompareTag("Enemy"))
         {
+            Debug.Log("敵に当たった！ 敵を破壊！");
             Destroy(collision.collider.gameObject);
             Destroy(gameObject);
         }

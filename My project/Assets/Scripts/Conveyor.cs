@@ -5,23 +5,32 @@ public class Conveyor : MonoBehaviour
     [SerializeField] private Vector2 moveDirection = Vector2.right;
     [SerializeField] private float moveSpeed = 2f;
 
-    private void OnCollisionStay2D(Collision2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
-        if (!collision.collider.CompareTag("Enemy")) return;
+        if (!collision.CompareTag("Enemy") &&
+            !collision.CompareTag("Player")) return;
 
-        Rigidbody2D rb = collision.collider.GetComponent<Rigidbody2D>();
+        Rigidbody2D rb = collision.GetComponent<Rigidbody2D>();
         if (rb == null) return;
 
-        rb.linearVelocity = moveDirection.normalized * moveSpeed;
+        Vector2 beltVel = moveDirection.normalized * moveSpeed;
+
+        if (collision.CompareTag("Player"))
+        {
+            PlayerMove player = collision.GetComponent<PlayerMove>();
+            player.conveyorVelocity = beltVel;
+        }
+        else
+        {
+            rb.linearVelocity = beltVel;
+        }
     }
 
-    private void OnCollisionExit2D(Collision2D collision)
+    private void OnTriggerExit2D(Collider2D collision)
     {
-        if (!collision.collider.CompareTag("Enemy")) return;
-
-        Rigidbody2D rb = collision.collider.GetComponent<Rigidbody2D>();
-        if (rb == null) return;
-
-        rb.linearVelocity = Vector2.zero;
+        if (collision.CompareTag("Player"))
+        {
+            collision.GetComponent<PlayerMove>().conveyorVelocity = Vector2.zero;
+        }
     }
 }

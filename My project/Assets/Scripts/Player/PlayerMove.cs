@@ -18,6 +18,9 @@ public class PlayerMove : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 moveInput;
 
+    public Vector2 conveyorVelocity = Vector2.zero;
+    [SerializeField] private float conveyorInputMultiplier = 0.5f;
+
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -61,7 +64,17 @@ public class PlayerMove : MonoBehaviour
             return;
         }
 
-        rb.linearVelocity = moveInput * moveSpeed;
+        // 入力速度
+        Vector2 inputVelocity = moveInput * moveSpeed;
+
+        // ベルト上なら入力を弱める
+        if (conveyorVelocity != Vector2.zero)
+        {
+            inputVelocity *= conveyorInputMultiplier;
+        }
+
+        // 最終速度 = ベルト + 入力
+        rb.linearVelocity = conveyorVelocity + inputVelocity;
     }
 
     public void TakeDamage(int damage)
