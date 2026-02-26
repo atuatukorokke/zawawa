@@ -1,0 +1,91 @@
+using UnityEngine;
+
+public class EnemyShooter3Way : MonoBehaviour
+{
+    [Header("弾のプレハブ")]
+    [SerializeField] private GameObject bulletPrefab;
+
+    [Header("発射間隔（秒）")]
+    [SerializeField] private float fireInterval = 2f;
+
+    [Header("弾のスピード")]
+    [SerializeField] private float bulletSpeed = 5f;
+
+    [Header("発射位置オフセット")]
+    [SerializeField] private float spawnOffset = 1.2f;
+
+    [Header("3Wayの角度")]
+    [SerializeField] private float angleOffset = 45f;
+
+    private float fireTimer;
+    private Transform player;
+
+    void Start()
+    {
+        GameObject p = GameObject.FindGameObjectWithTag("Player");
+        if (p != null)
+        {
+            player = p.transform;
+        }
+    }
+
+    void Update()
+    {
+        if (player == null) return;
+
+        fireTimer += Time.deltaTime;
+
+        if (fireTimer >= fireInterval)
+        {
+            Shoot3Way();
+            fireTimer = 0f;
+        }
+    }
+
+    void Shoot3Way()
+    {
+        // プレイヤー方向（基準）
+        Vector2 baseDir =
+            (player.position - transform.position).normalized;
+
+        float[] angles = { 0f, angleOffset, -angleOffset };
+
+        foreach (float angle in angles)
+        {
+            Vector2 dir = Rotate(baseDir, angle);
+
+            Vector2 spawnPos =
+                (Vector2)transform.position + dir * spawnOffset;
+
+            GameObject bullet = Instantiate(
+                bulletPrefab,
+                spawnPos,
+                Quaternion.identity
+            );
+
+            Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+            if (rb != null)
+            {
+                rb.linearVelocity = dir * bulletSpeed;
+            }
+
+            Bullet bulletScript = bullet.GetComponent<Bullet>();
+            if (bulletScript != null)
+            {
+                bulletScript.SetOwner(gameObject);
+            }
+        }
+    }
+
+    Vector2 Rotate(Vector2 v, float angle)
+    {
+        float rad = angle * Mathf.Deg2Rad;
+        float cos = Mathf.Cos(rad);
+        float sin = Mathf.Sin(rad);
+
+        return new Vector2(
+            v.x * cos - v.y * sin,
+            v.x * sin + v.y * cos
+        );
+    }
+}
