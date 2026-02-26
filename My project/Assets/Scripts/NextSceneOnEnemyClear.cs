@@ -1,94 +1,89 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+// このスクリプトは
+// ・敵の出現と撃破をイベントでカウントする
+// ・敵が全滅したら次のシーンへ進む
+// ための管理クラス
 public class NextSceneOnEnemyClear : MonoBehaviour
 {
-    int enemyCount;
+    // 現在生きている敵の数
+    int enemyCount = 0;
+
+    // 初期化が終わったかどうか
+    // （誤作動を防ぐためのフラグ）
     bool initialized = false;
 
     private void OnEnable()
     {
+        // 敵出現イベントに登録
         EnemyDeathNotifier.OnEnemySpawned += OnEnemySpawned;
+
+        // 敵撃破イベントに登録
         EnemyDeathNotifier.OnEnemyDestroyed += OnEnemyDestroyed;
     }
 
     private void OnDisable()
     {
+        // イベント解除（超重要）
+        EnemyDeathNotifier.OnEnemySpawned -= OnEnemySpawned;
         EnemyDeathNotifier.OnEnemyDestroyed -= OnEnemyDestroyed;
     }
 
     void Start()
     {
-        enemyCount = GameObject.FindGameObjectsWithTag("Enemy").Length;
+        // 今回はStart時に敵を数えない
+        // すべてイベント管理にしている
+
         initialized = true;
-        Debug.Log("初期敵数: " + enemyCount);
+
+        Debug.Log("EnemyClearManager 起動");
     }
 
-    void OnEnemySpawned() 
-    { 
-        enemyCount++; Debug.Log("敵が出現！ 現在の敵数: " + enemyCount); 
+    // 敵が出現したとき呼ばれる
+    void OnEnemySpawned()
+    {
+        enemyCount++;
+
+        Debug.Log("敵出現 +1 → " + enemyCount);
     }
 
+    // 敵が倒されたとき呼ばれる
     void OnEnemyDestroyed()
     {
-        // まだ初期化前 or もう使わないタイミングなら無視
-        if (!initialized) 
-        { 
-            Debug.LogWarning("初期化前/無効状態で OnEnemyDestroyed が呼ばれたので無視しました"); 
-            return; 
-        }
-
-        if (enemyCount <= 0)
-        {
-            Debug.LogWarning("enemyCount が 0 以下。初期化が正しく行われていない可能性があります。");
-            return;
-        }
+        // 初期化前なら無視
+        if (!initialized) return;
 
         enemyCount--;
-        Debug.Log("敵が倒れた通知を受け取った！ 残り: " + enemyCount);
 
-        if (enemyCount == 0)
+        Debug.Log("敵撃破 -1 → " + enemyCount);
+
+        // 敵が0以下になったら全滅と判断
+        if (enemyCount <= 0)
         {
-            // これ以降の通知は無視したいので無効化
             initialized = false;
+
             LoadNextScene();
         }
     }
 
-
+    // 次のシーンへ進む処理
     void LoadNextScene()
     {
-        Debug.Log("LoadNextScene()が呼ばれた！");
+        // 今いるシーンの番号を取得
+        int index = SceneManager.GetActiveScene().buildIndex;
 
-        //現在のシーン名を取得
-        string currentScene = SceneManager.GetActiveScene().name;
+        // Build Settingsに登録されているシーン数
+        int max = SceneManager.sceneCountInBuildSettings;
 
-        string nextSceneName = "";
-
-        //PlayerScene 1 の場合 → PlayerScene 2 へ
-        if (currentScene == "PlayerScene 1")
+        // 次のシーンが存在するなら
+        if (index + 1 < max)
         {
-            nextSceneName = "PlayerScene 2";
-        }
-        //PlayerScene 2 の場合 → ClearTestScene へ
-        else if (currentScene == "PlayerScene 2")
-        {
-            nextSceneName = "ClearTestScene";
+            SceneManager.LoadScene(index + 1);
         }
         else
         {
-            Debug.LogError("このシーンからの遷移先が設定されていません: " + currentScene);
-            return;
-        }
-
-        // シーンが Build Profiles に登録されているか確認
-        if (Application.CanStreamedLevelBeLoaded(nextSceneName))
-        {
-            SceneManager.LoadScene(nextSceneName);
-        }
-        else
-        {
-            Debug.LogError($"シーン '{nextSceneName}' が Build Profiles に登録されていません");
+            Debug.Log("これ以上次のシーンはありません");
         }
     }
 }

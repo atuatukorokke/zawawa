@@ -39,11 +39,15 @@ public class GameOverManager : MonoBehaviour
         // GAME OVER画像を表示する
         gameOverImage.SetActive(true);
 
+        Time.timeScale = 0f; // ゲームの時間を止める（演出中にゲームが動かないようにする）
+
+
         // 指定した秒数だけ待つ
-        yield return new WaitForSeconds(waitTime);
+        yield return new WaitForSecondsRealtime(waitTime);
 
         // リトライUIを表示する
         retryimage.SetActive(true);
+
     }
 
     /// <summary>

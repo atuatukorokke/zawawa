@@ -36,4 +36,14 @@ public class PlayerHealth : MonoBehaviour
             // ここにゲームオーバーの処理を追加
         }
     }
+    // ボスのHPが0になるときの処理に以下のコードを追加してほしい
+    // ボスがやられるとタイムカウンターを止めて、結果画面に遷移するコード
+    //    if (hp <= 0)　HPが0以下になったとき
+    //      HPの変数はこのスクリプト内で管理しているcurrentHpなので、
+    //      if (currentHp <= 0)　を条件としてかいといてください　　　　見づらくてごめん
+    //{
+    //    TimeCounter.Instance.StopTimer();
+    //    SceneManager.LoadScene("Result");
+    //      
+    //}
 }
