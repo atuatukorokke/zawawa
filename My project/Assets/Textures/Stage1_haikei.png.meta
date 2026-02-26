@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 37a19ee7063bdcb4fa14a95bc05b3205
+guid: 845c4ee5d53b0a343a5c392660cf1c04
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6928878605842564547
-    second: 287_20260226111201_0
+      213: 622114137429330635
+    second: Stage1_haikei_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -165,13 +165,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 287_20260226111201_0
+      name: Stage1_haikei_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1280
-        height: 720
+        width: 1920
+        height: 1080
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -180,8 +180,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3c5cc099162582060800000000000000
-      internalID: 6928878605842564547
+      spriteID: bca493b038132a800800000000000000
+      internalID: 622114137429330635
       vertices: []
       indices: 
       edges: []
@@ -190,7 +190,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -200,7 +200,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      287_20260226111201_0: 6928878605842564547
+      Stage1_haikei_0: 622114137429330635
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

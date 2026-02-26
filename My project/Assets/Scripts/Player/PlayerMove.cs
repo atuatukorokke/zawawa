@@ -125,7 +125,7 @@ public class PlayerMove : MonoBehaviour
         Debug.Log("プレイヤー死亡");
 
         // シーン内のGameOverManagerを探す
-        GameOverManager manager = FindObjectOfType<GameOverManager>();
+        GameOverManager manager = FindFirstObjectByType<GameOverManager>();
 
         if (manager != null)
         {
