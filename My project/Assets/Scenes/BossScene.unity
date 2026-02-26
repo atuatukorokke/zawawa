@@ -468,6 +468,7 @@ GameObject:
   - component: {fileID: 740761331}
   - component: {fileID: 740761330}
   - component: {fileID: 740761332}
+  - component: {fileID: 740761333}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Untagged
@@ -641,6 +642,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BossHels: 50
+--- !u!114 &740761333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 740761326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1faa2e1e43bbc8c4c85f36ec4b4f46fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHp: 10
+  hpSlider: {fileID: 0}
 --- !u!1 &1010598835
 GameObject:
   m_ObjectHideFlags: 0
