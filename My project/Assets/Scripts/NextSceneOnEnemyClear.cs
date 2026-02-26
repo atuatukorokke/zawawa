@@ -3,54 +3,64 @@ using UnityEngine.SceneManagement;
 
 public class NextSceneOnEnemyClear : MonoBehaviour
 {
-    // ƒV[ƒ““à‚ÌEnemy‚Ì”‚ğ”‚¦‚é•Ï”
     int enemyCount;
 
     void Start()
     {
-        // ƒV[ƒ““à‚ÌEnemyƒ^ƒO‚ª•t‚¢‚½ƒIƒuƒWƒFƒNƒg‚ğ”‚¦‚é
         enemyCount = GameObject.FindGameObjectsWithTag("Enemy").Length;
+
+        EnemyDeathNotifier.OnEnemyDestroyed += OnEnemyDestroyed;
     }
 
-    // Enemytest.cs‚©‚çŒÄ‚Î‚ê‚é“G‚ªÁ‚¦‚½’Ê’m
-    public void EnemyDefeated()
+    void OnDestroy()
     {
-        // “G‚ª“|‚³‚ê‚½‚Ì‚ÅƒJƒEƒ“ƒg‚ğŒ¸‚ç‚·
-        enemyCount--;
-        Debug.Log("EnemyDefeated()‚ªŒÄ‚Î‚ê‚½I");
+        EnemyDeathNotifier.OnEnemyDestroyed -= OnEnemyDestroyed;
+    }
 
-        // “G‚ª‘S‚Ä“|‚³‚ê‚½‚©ƒ`ƒFƒbƒN
+    void OnEnemyDestroyed()
+    {
+        enemyCount--;
+        Debug.Log("æ•µãŒå€’ã‚ŒãŸé€šçŸ¥ã‚’å—ã‘å–ã£ãŸï¼ æ®‹ã‚Š: " + enemyCount);
+
         if (enemyCount <= 0)
         {
             LoadNextScene();
         }
     }
 
-    // Ÿ‚ÌƒV[ƒ“‚ğ“Ç‚İ‚ŞŠÖ”
     void LoadNextScene()
     {
-        Debug.Log("LoadNextScene()‚ªŒÄ‚Î‚ê‚½I");
+        Debug.Log("LoadNextScene()ãŒå‘¼ã°ã‚ŒãŸï¼");
 
-        // Œ»İ‚ÌƒV[ƒ“–¼‚ğæ“¾
-        string current = SceneManager.GetActiveScene().name;
+        //ç¾åœ¨ã®ã‚·ãƒ¼ãƒ³åã‚’å–å¾—
+        string currentScene = SceneManager.GetActiveScene().name;
 
-        // —á) PlayerScene -> PlayerScene1
-        // ”š•”•ª‚ğæ‚èo‚·
-        string numberText = System.Text.RegularExpressions.Regex.Match(current, @"\d+").Value;
+        string nextSceneName = "";
 
-        // ”š‚ğ®”‚É•ÏŠ·‚µ‚ÄAŸ‚ÌƒV[ƒ“–¼‚ğì‚é
-        if (int.TryParse(numberText, out int num))
+        //PlayerScene 1 ã®å ´åˆ â†’ PlayerScene 2 ã¸
+        if (currentScene == "PlayerScene 1")
         {
-            int nextNum = num + 1; // Ÿ‚Ì”Ô†
-            string nextScene = current.Replace(num.ToString(), nextNum.ToString());
-
-            // Ÿ‚ÌƒV[ƒ“‚ğ“Ç‚İ‚Ş
-            SceneManager.LoadScene(nextScene);
+            nextSceneName = "PlayerScene 2";
+        }
+        //PlayerScene 2 ã®å ´åˆ â†’ ClearTestScene ã¸
+        else if (currentScene == "PlayerScene 2")
+        {
+            nextSceneName = "ClearTestScene";
         }
         else
         {
-            // ƒV[ƒ“–¼‚É”š‚ª‚È‚¢ê‡‚ÍƒGƒ‰[‚ğo‚·
-            Debug.LogError("ƒV[ƒ“–¼‚É”š‚ªŠÜ‚Ü‚ê‚Ä‚¢‚Ü‚¹‚ñ");
+            Debug.LogError("ã“ã®ã‚·ãƒ¼ãƒ³ã‹ã‚‰ã®é·ç§»å…ˆãŒè¨­å®šã•ã‚Œã¦ã„ã¾ã›ã‚“: " + currentScene);
+            return;
+        }
+
+        // ã‚·ãƒ¼ãƒ³ãŒ Build Profiles ã«ç™»éŒ²ã•ã‚Œã¦ã„ã‚‹ã‹ç¢ºèª
+        if (Application.CanStreamedLevelBeLoaded(nextSceneName))
+        {
+            SceneManager.LoadScene(nextSceneName);
+        }
+        else
+        {
+            Debug.LogError($"ã‚·ãƒ¼ãƒ³ '{nextSceneName}' ãŒ Build Profiles ã«ç™»éŒ²ã•ã‚Œã¦ã„ã¾ã›ã‚“");
         }
     }
 }

@@ -144,20 +144,4 @@ public class Bullet : MonoBehaviour
         rb.linearVelocity =
             rb.linearVelocity.normalized * speed;
     }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-#if UNITY_EDITOR
-        Debug.Log("何かにあたった;" + collision.name);
-#endif
-        // Enemyタグに当たったら
-        if(collision.CompareTag("Enemy"))
-        {
-            Debug.Log("Enemyに当たった！");
-            // Enemy.csのDie()を呼ぶ
-            collision.GetComponent<Enemytest>().Die();
-            // 弾も壊す
-            Destroy(gameObject);
-        }
-    }
 }
