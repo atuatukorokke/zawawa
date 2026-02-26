@@ -3,19 +3,19 @@ using UnityEngine;
 public class GameOverInput : MonoBehaviour
 {
     [SerializeField] private RetryManager retryManager;
-    [SerializeField] private StartManager startManager; // ƒXƒ^[ƒg‚Ö–ß‚éˆ——p
+    [SerializeField] private StartManager startManager; // ã‚¹ã‚¿ãƒ¼ãƒˆã¸æˆ»ã‚‹å‡¦ç†ç”¨
 
     void Update()
     {
-        // ƒpƒlƒ‹‚ª•\¦’†‚¾‚¯”½‰‚³‚¹‚½‚¢‚È‚ç
+        // ãƒ‘ãƒãƒ«ãŒè¡¨ç¤ºä¸­ã ã‘åå¿œã•ã›ãŸã„ãªã‚‰
         if (!gameObject.activeInHierarchy) return;
 
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKeyDown(KeyCode.Q))
         {
             retryManager.Retry();
         }
 
-        if (Input.GetKeyDown(KeyCode.D))
+        if (Input.GetKeyDown(KeyCode.E))
         {
             startManager.GoToStart();
         }
