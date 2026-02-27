@@ -23,7 +23,7 @@ public class GimmickBeamGenerator : MonoBehaviour
                 // 出現位置を指定して生成
 
                 GimmickBeamController controller = spawnedObject.GetComponent<GimmickBeamController>(); 
-                controller.generator = this;
+                controller.beamGenerator = this;
 
 
                 // 初期スケール設定
@@ -37,7 +37,7 @@ public class GimmickBeamGenerator : MonoBehaviour
         
     }
 
-    public void Revive()
+    public void BeamRevive()
     {
         fire = false;
     }

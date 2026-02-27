@@ -2,41 +2,51 @@ using UnityEngine;
 
 public class GimmickBottonController : MonoBehaviour
 {
-    [SerializeField] private GameObject botton;
-    //[SerializeField] private GameObject Wall;
+    [SerializeField] public GameObject botton;
+    //[SerializeField] public Collider2D WallC;
+    public GimmickBottonGenerator bottonGenerator;
     
-    private bool stay = true;
-    private float wallTime = 5f;
-    float delta = 0;
+    //private bool stay = true;
+    //private float wallTime = 3f;            //いったん３
+    //float delta = 0;
 
-    private GameObject WallTest;
+    //private GameObject WallTest;
 
     private void Start()
     {
-        //GameObject wall = GetComponent<GameObject>();
-        WallTest = GameObject.Find("Wall");     //.Find修正予定
+        //WallC = GetComponent<Collider2D>();
+        //WallTest = GameObject.Find("Wall");     //.Find修正予定
         //Debug.Log(WallTest.name);
+        
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+
+
+    void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Bullet"))
         {
-            WallTest.SetActive(false);
-            stay = false;
+            //GimmickBottonGenerator bottonGenerator = GetComponent<GimmickBottonGenerator>();
+            bottonGenerator.BottonRevive();
+            Destroy(this.gameObject);
+
+            //Debug.Log("dest");
         }
     }
 
     private void Update()
     {
-        if(stay == false)
-        {
-            this.delta += Time.deltaTime;
-            if (this.delta > this.wallTime)
-            {
-                WallTest.SetActive(true);
-                this.delta = 0;
-            }
-        }
+        //if(stay == false)
+        //{
+        //    this.delta += Time.deltaTime;
+        //    if (this.delta > this.wallTime)
+        //    {
+        //        Wall.SetActive(true);
+        //        this.delta = 0;
+        //        stay = true;
+        //    }
+        //}
     }
+    //Num = Random.Range(1, 4)
+    // {"wall"+Num}
 }
