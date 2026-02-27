@@ -3,7 +3,7 @@ using UnityEngine.UIElements;
 
 public class GimmickBeamController : MonoBehaviour
 {
-    public GimmickBeamGenerator generator;
+    public GimmickBeamGenerator beamGenerator;
 
     [Header("伸縮設定")]
     public float stretchSpeed;
@@ -69,9 +69,8 @@ public class GimmickBeamController : MonoBehaviour
 
         if (lastPositionX > transform.position.x)
         {
-            generator.Revive();
             Destroy(gameObject);
-            
+            beamGenerator.BeamRevive();
         }
 
         

@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 684230074971848816}
   - component: {fileID: 359440074844418594}
-  - component: {fileID: 313124665734112322}
   - component: {fileID: 1443390756183630270}
+  - component: {fileID: -4342070841741725751}
   m_Layer: 0
   m_Name: GimmickBotton
   m_TagString: Gimmick
@@ -89,20 +89,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &313124665734112322
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6819340182570918163}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8dc6c0cca7b589d478adc0b7fae03c82, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  botton: {fileID: 6819340182570918163}
-  Wall: {fileID: 0}
 --- !u!58 &1443390756183630270
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -139,3 +125,17 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.5
+--- !u!114 &-4342070841741725751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6819340182570918163}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8dc6c0cca7b589d478adc0b7fae03c82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  botton: {fileID: 6819340182570918163}
+  bottonGenerator: {fileID: 446547756844872751, guid: b7682f328a9593c4bada6ee9217846a4, type: 3}
