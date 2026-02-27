@@ -12,8 +12,6 @@ GameObject:
   - component: {fileID: 2322645134809399217}
   - component: {fileID: 7989663459749636897}
   - component: {fileID: 1442910276608699782}
-  - component: {fileID: 1830980737710309864}
-  - component: {fileID: 583100904167928375}
   - component: {fileID: 832973651091488903}
   - component: {fileID: 490854426239028475}
   m_Layer: 0
@@ -22,7 +20,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8670624320346424862
 Transform:
   m_ObjectHideFlags: 0
@@ -105,7 +103,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81e066f14cf44fc4d9f648b26c310449, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 2490399557829209723, guid: d0760d8dd7eaa2247996a136ff16914b, type: 3}
+  bulletPrefab: {fileID: 2490399557829209723, guid: 24833b2699ab61c459fc033cb8ffd21e, type: 3}
   fireInterval: 2
   rotateInterval: 0.1
   shootOffset: 1.2
@@ -156,34 +154,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &1830980737710309864
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3845730291890463803}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ad40ef4412bc7c4c84bb1cea83b2f83, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 4
-  moveRange: 8
---- !u!114 &583100904167928375
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3845730291890463803}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3b753113d7b85b43b601474d0513bfa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  radius: 2.5
-  rotateSpeed: 4
 --- !u!114 &832973651091488903
 MonoBehaviour:
   m_ObjectHideFlags: 0

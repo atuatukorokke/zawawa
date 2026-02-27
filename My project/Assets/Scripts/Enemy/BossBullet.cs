@@ -1,3 +1,4 @@
+// こっちを残す
 using UnityEngine;
 
 public class BossBullet : MonoBehaviour
