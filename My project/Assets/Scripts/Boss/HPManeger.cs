@@ -35,11 +35,12 @@ public class PlayerHealth : MonoBehaviour
         if (currentHp == 0)
         {
             Debug.Log("ゲームオーバー！");
+
             // ここにゲームオーバーの処理を追加
             Destroy(gameObject);
             //クリアシーンの処理
             //TimeCounter.Instance.StopTimer();
-            //SceneManager.LoadScene("Result");
+            SceneManager.LoadScene("ClearScene");
         }
     }
     void OnCollisionEnter2D(Collision2D collision)

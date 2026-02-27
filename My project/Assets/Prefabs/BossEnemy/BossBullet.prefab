@@ -162,11 +162,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2490399557829209723}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66c1ddab27334334f8b9dcfee8c8850f, type: 3}
+  m_Script: {fileID: 11500000, guid: c095c43a36c047742a1d49c90cc0fba1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 8
   speedUpAmount: 2
   maxSpeed: 20
-  DeleteTime: 3
+  DeleteTime: 6
   isReflected: 0
