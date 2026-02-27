@@ -28,10 +28,7 @@ public class BeamBullet : MonoBehaviour
     {
         //Debug.Log(collision.gameObject.name);
         //if(collision.gameObject.CompareTag())
-        if (collision.gameObject.name == "Boss" || collision.gameObject.CompareTag("Player")) 
-        {
-            
-        }
+        if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Bullet")) { }
         else Destroy(gameObject);
         
     }
