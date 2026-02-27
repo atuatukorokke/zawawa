@@ -1,0 +1,246 @@
+fileFormatVersion: 2
+guid: b1223361929712b42864e88b37b10d07
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7471301631076384178
+    second: GameClearAnimation2_0
+  - first:
+      213: -6315156943502901828
+    second: GameClearAnimation2_1
+  - first:
+      213: 6795339374009460989
+    second: GameClearAnimation2_2
+  - first:
+      213: -2728854519589129824
+    second: GameClearAnimation2_3
+  - first:
+      213: 4957369196388023920
+    second: GameClearAnimation2_4
+  - first:
+      213: 8615209887952385442
+    second: GameClearAnimation2_5
+  - first:
+      213: 5291592018727077630
+    second: GameClearAnimation2_6
+  - first:
+      213: -29854638490701324
+    second: GameClearAnimation2_7
+  - first:
+      213: 6188188097712285118
+    second: GameClearAnimation2_8
+  - first:
+      213: -6850632233558609638
+    second: GameClearAnimation2_9
+  - first:
+      213: -7591656519766813556
+    second: GameClearAnimation2_10
+  - first:
+      213: -8246822735143021965
+    second: GameClearAnimation2_11
+  - first:
+      213: 5671575564701444847
+    second: GameClearAnimation2_12
+  - first:
+      213: -3617982653410810880
+    second: GameClearAnimation2_13
+  - first:
+      213: 6235466121334967964
+    second: GameClearAnimation2_14
+  - first:
+      213: -2778320870997599310
+    second: GameClearAnimation2_15
+  - first:
+      213: 4754279570223456598
+    second: GameClearAnimation2_16
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: GameClearAnimation2_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1275
+        height: 717
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2bdba12bf356fa760800000000000000
+      internalID: 7471301631076384178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 95af0db5a32d0d54db3a7cf78ab0f178
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      GameClearAnimation2_0: 7471301631076384178
+      GameClearAnimation2_1: -6315156943502901828
+      GameClearAnimation2_10: -7591656519766813556
+      GameClearAnimation2_11: -8246822735143021965
+      GameClearAnimation2_12: 5671575564701444847
+      GameClearAnimation2_13: -3617982653410810880
+      GameClearAnimation2_14: 6235466121334967964
+      GameClearAnimation2_15: -2778320870997599310
+      GameClearAnimation2_16: 4754279570223456598
+      GameClearAnimation2_2: 6795339374009460989
+      GameClearAnimation2_3: -2728854519589129824
+      GameClearAnimation2_4: 4957369196388023920
+      GameClearAnimation2_5: 8615209887952385442
+      GameClearAnimation2_6: 5291592018727077630
+      GameClearAnimation2_7: -29854638490701324
+      GameClearAnimation2_8: 6188188097712285118
+      GameClearAnimation2_9: -6850632233558609638
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
