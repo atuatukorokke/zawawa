@@ -9,14 +9,43 @@ public class RetryByRKey : MonoBehaviour
         {
             Retry();
         }
+
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            NextScene();
+        }
+
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            PreviousScene();
+        }
     }
 
     void Retry()
     {
-        // ★ 時間を戻す（超重要）
         Time.timeScale = 1f;
 
         Scene currentScene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(currentScene.name);
+    }
+
+    void NextScene()
+    {
+        int nextIndex = SceneManager.GetActiveScene().buildIndex + 1;
+
+        if (nextIndex < SceneManager.sceneCountInBuildSettings)
+        {
+            SceneManager.LoadScene(nextIndex);
+        }
+    }
+
+    void PreviousScene()
+    {
+        int prevIndex = SceneManager.GetActiveScene().buildIndex - 1;
+
+        if (prevIndex >= 0)
+        {
+            SceneManager.LoadScene(prevIndex);
+        }
     }
 }
