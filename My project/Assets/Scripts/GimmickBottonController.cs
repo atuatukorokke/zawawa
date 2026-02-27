@@ -14,8 +14,8 @@ public class GimmickBottonController : MonoBehaviour
     private void Start()
     {
         //GameObject wall = GetComponent<GameObject>();
-        WallTest = GameObject.Find("Wall");
-        Debug.Log(WallTest.name);
+        WallTest = GameObject.Find("Wall");     //.Find修正予定
+        //Debug.Log(WallTest.name);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
