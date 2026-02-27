@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6223334451495560088}
   m_Layer: 0
   m_Name: BIGBullet
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -168,3 +168,4 @@ MonoBehaviour:
   speed: 3
   speedUpAmount: 0.1
   maxSpeed: 8
+  isReflected: 0

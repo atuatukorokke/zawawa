@@ -74,7 +74,7 @@ public class Bullet : MonoBehaviour
         // 🛡 Shieldに当たったら反射
         if (collision.collider.CompareTag("Shield"))
         {
-            Reflect();
+            Reflect(collision);
             return;
         }
 
@@ -104,18 +104,27 @@ public class Bullet : MonoBehaviour
         }
     }
 
-    void Reflect()
+    void Reflect(Collision2D collision)
     {
         if (!isReflected)
         {
             isReflected = true;
 
-            Vector2 newDir = -rb.linearVelocity.normalized;
+            // 衝突面の法線を取得
+            Vector2 normal = collision.contacts[0].normal;
+
+            // 入射ベクトルから正しく反射方向を計算
+            Vector2 newDir = Vector2.Reflect(
+                rb.linearVelocity.normalized,
+                normal
+            );
+
+            // スピードだけ管理（プレイヤー速度は使わない）
             speed = Mathf.Min(speed + speedUpAmount, maxSpeed);
+
             rb.linearVelocity = newDir * speed;
 
-            // 🔥 色を変える
-            sr.color = Color.cyan; // 好きな色に変えてOK
+            sr.color = Color.cyan;
         }
     }
 }
