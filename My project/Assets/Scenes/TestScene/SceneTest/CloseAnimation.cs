@@ -14,8 +14,10 @@ public class CloseAnimation : MonoBehaviour
         anim.SetBool("close", true);
     }
 
+    // アニメーションイベントで呼ぶ
     public void SceneClose()
     {
-        SceneManager.LoadScene("PlayerScene 2");
+        int nextIndex = SceneManager.GetActiveScene().buildIndex + 1;
+        SceneManager.LoadScene(nextIndex);
     }
 }

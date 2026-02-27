@@ -13,7 +13,7 @@ public class SceneChange : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Return))
         {
             // "PlayerScene 1" という名前のシーンを読み込む
-            SceneManager.LoadScene("PlayerScene 1");
+            SceneManager.LoadScene("Stage01");
         }
     }
 
