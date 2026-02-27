@@ -6,7 +6,7 @@ using UnityEngine.UI; // UI操作に必要
 public class PlayerHealth : MonoBehaviour
 {
     // プレイヤーの最大HPと現在のHP
-    public int maxHp = 10;
+    public int maxHp = 5;
     private int currentHp;
 
     // スライダーの参照
@@ -25,6 +25,7 @@ public class PlayerHealth : MonoBehaviour
         // HPを減らす処理
         currentHp -= damage;
         if (currentHp < 0) currentHp = 0;
+        Debug.Log(currentHp);
 
         // スライダーに現在のHPを反映
         hpSlider.value = currentHp;
@@ -34,6 +35,15 @@ public class PlayerHealth : MonoBehaviour
         {
             Debug.Log("ゲームオーバー！");
             // ここにゲームオーバーの処理を追加
+            Destroy(gameObject);
+        }
+    }
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Bullet"))
+        { 
+            TakeDamage(1); // HPを1減らす
+            //Debug.Log("Damage"); 
         }
     }
     // ボスのHPが0になるときの処理に以下のコードを追加してほしい

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8310885104505039119}
   m_Layer: 0
   m_Name: BeamPrefab
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -139,6 +139,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd6f5c0bab224974ebbc5af3821c71a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DeleteTime: 6
 --- !u!50 &8310885104505039119
 Rigidbody2D:
   serializedVersion: 5

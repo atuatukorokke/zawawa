@@ -13,6 +13,7 @@ public class BossManeger : MonoBehaviour
     [SerializeField] private float bulletSpeed = 5f;
     //発射位置
     [SerializeField] private Transform firePoint;
+    [SerializeField] private float FiringInterval = 0.5f;
     //リキャスト
     [SerializeField] private float fireInterval = 3.0f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -36,14 +37,14 @@ public class BossManeger : MonoBehaviour
             //BeamBarrel.gameObject.SetActive(true);
             //Debug.Log("Shoot");
             Shoot();      //弾を撃つ
-            Invoke("Shoot",0.5f);
+            Invoke("Shoot", FiringInterval);
             //CancelInvoke();
 
             timer = 0f; // カウントのリセット
             //fireInterval = Random.Range(10, 30);
             //BeamBarrel.gameObject.SetActive(false); //砲身の非表示
 
-            Debug.Log("asd");
+            //Debug.Log("asd");
         }
     }
 
