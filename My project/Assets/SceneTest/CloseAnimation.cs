@@ -6,17 +6,16 @@ public class CloseAnimation : MonoBehaviour
     private bool check = true;
     [SerializeField] private Animator anim;
 
-    void Update()
+    public void PlayClose()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && check)
-        {
-            check = false;
-            anim.SetBool("close", true);
-        }
+        if (!check) return;
+
+        check = false;
+        anim.SetBool("close", true);
     }
 
     public void SceneClose()
     {
-        SceneManager.LoadScene("SceneTest2");
+        SceneManager.LoadScene("PlayerScene 2");
     }
 }

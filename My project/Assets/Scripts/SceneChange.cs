@@ -36,7 +36,7 @@ public class SceneChange : MonoBehaviour
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         // 読み込まれたシーンの名前をチェック
-        if (scene.name == "PlayerScene 1")
+        if (scene.name == "Stage01")
         {
             // TimeCounterというシングルトンのタイマーを開始する
             TimeCounter.Instance.StartTimer();

@@ -2,16 +2,27 @@ using UnityEngine;
 
 public class OpenAnimation : MonoBehaviour
 {
+    [Header("Animator")]
     [SerializeField] private Animator anim;
-    [SerializeField] private GameObject Object;
+
+    // 多重実行防止
+    private bool opened = false;
 
     void Awake()
     {
+        if (anim == null)
+            anim = GetComponent<Animator>();
+
+        // シーン開始と同時にOpen再生
         anim.SetBool("open", true);
     }
 
+    // 🔥 アニメーションの最後に AnimationEvent で呼ぶ
     public void OpenDelete()
     {
-        Destroy(Object);
+        if (opened) return;
+        opened = true;
+
+        Destroy(gameObject);
     }
 }
