@@ -128,7 +128,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 228069738}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -169,7 +169,7 @@ GameObject:
   - component: {fileID: 250777251}
   m_Layer: 0
   m_Name: Square (1)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -470,7 +470,7 @@ GameObject:
   - component: {fileID: 740761334}
   m_Layer: 0
   m_Name: Boss
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -654,7 +654,7 @@ GameObject:
   - component: {fileID: 1010598836}
   - component: {fileID: 1010598838}
   - component: {fileID: 1010598837}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -913,10 +913,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b97bd3f4aa637b46965696c11ad6736, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Bullet: {fileID: 3806570769459065855, guid: 289aa02828ef102498029eb0cad77c87, type: 3}
+  Bullet: {fileID: 7802794780398730551, guid: e64bb0c36582bbb48b9219744a2cdf13, type: 3}
   bulletSpeed: 5
   firePoint: {fileID: 1883520063}
-  fireInterval: 0.25
+  fireInterval: 1
 --- !u!1 &1380829147
 GameObject:
   m_ObjectHideFlags: 0
@@ -1033,10 +1033,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b97bd3f4aa637b46965696c11ad6736, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Bullet: {fileID: 3806570769459065855, guid: 289aa02828ef102498029eb0cad77c87, type: 3}
+  Bullet: {fileID: 7802794780398730551, guid: e64bb0c36582bbb48b9219744a2cdf13, type: 3}
   bulletSpeed: 5
   firePoint: {fileID: 1725721365}
-  fireInterval: 0.25
+  fireInterval: 0.75
 --- !u!1 &1479437067
 GameObject:
   m_ObjectHideFlags: 0
@@ -1203,7 +1203,7 @@ GameObject:
   - component: {fileID: 1510977566}
   m_Layer: 0
   m_Name: Square
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1315,7 +1315,7 @@ BoxCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: f587a8d76a25b4f4ba1e2196e91a4baf, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1510,9 +1510,9 @@ GameObject:
   - component: {fileID: 1716226000}
   - component: {fileID: 1716225999}
   - component: {fileID: 1716225998}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: HPber
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1614,7 +1614,7 @@ GameObject:
   - component: {fileID: 1718679444}
   m_Layer: 0
   m_Name: Square (2)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1803,7 +1803,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100992330651077923, guid: 959976be0ed14674b813a7ba7060df68, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.05
       objectReference: {fileID: 0}
     - target: {fileID: 100992330651077923, guid: 959976be0ed14674b813a7ba7060df68, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1860,7 +1860,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1822635208}
   - component: {fileID: 1822635209}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1964,7 +1964,7 @@ Transform:
   m_GameObject: {fileID: 1883520062}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.45, y: -0, z: 0}
+  m_LocalPosition: {x: 0.559, y: -0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1984,7 +1984,7 @@ GameObject:
   - component: {fileID: 1907794669}
   m_Layer: 0
   m_Name: Square (3)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2277,7 +2277,7 @@ GameObject:
   - component: {fileID: 2123680423}
   - component: {fileID: 2123680425}
   - component: {fileID: 2123680424}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
