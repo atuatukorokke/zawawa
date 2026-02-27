@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI; // UI操作に必要
 
 public class PlayerHealth : MonoBehaviour
@@ -24,7 +25,7 @@ public class PlayerHealth : MonoBehaviour
     {
         // HPを減らす処理
         currentHp -= damage;
-        if (currentHp < 0) currentHp = 0;
+        if (currentHp <= 0) currentHp = 0;
         Debug.Log(currentHp);
 
         // スライダーに現在のHPを反映
@@ -36,6 +37,9 @@ public class PlayerHealth : MonoBehaviour
             Debug.Log("ゲームオーバー！");
             // ここにゲームオーバーの処理を追加
             Destroy(gameObject);
+            //クリアシーンの処理
+            //TimeCounter.Instance.StopTimer();
+            //SceneManager.LoadScene("Result");
         }
     }
     void OnCollisionEnter2D(Collision2D collision)
