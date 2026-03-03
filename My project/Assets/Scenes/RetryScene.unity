@@ -443,6 +443,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3845730291890463803, guid: 45e13f343668e9c4c881a2e0a1d469be, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8670624320346424862, guid: 45e13f343668e9c4c881a2e0a1d469be, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.7
@@ -1638,6 +1642,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7e261b65777a4f4ca6407b7afe9194d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  closeAnim: {fileID: 0}
 --- !u!1 &1860450386
 GameObject:
   m_ObjectHideFlags: 0

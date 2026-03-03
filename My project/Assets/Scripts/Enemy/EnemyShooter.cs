@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[RequireComponent(typeof(EnemyDeathNotifier))] // ⭐ これ追加
 public class EnemyShooter : MonoBehaviour
 {
     [Header("弾のプレハブ")]
@@ -15,7 +16,7 @@ public class EnemyShooter : MonoBehaviour
     [SerializeField] private float shootOffset = 1.2f;
 
     [SerializeField] private GameObject muzzleFlashPrefab;
-    
+
     private float fireTimer;
     private float rotateTimer;
 
@@ -23,7 +24,6 @@ public class EnemyShooter : MonoBehaviour
 
     void Start()
     {
-        // 毎回Findしないように一度だけ取得（軽量化）
         player = GameObject.FindGameObjectWithTag("Player");
     }
 
@@ -34,14 +34,12 @@ public class EnemyShooter : MonoBehaviour
         fireTimer += Time.deltaTime;
         rotateTimer += Time.deltaTime;
 
-        // ⭐ 向きだけ0.1秒ごとに更新
         if (rotateTimer >= rotateInterval)
         {
             RotateToPlayer();
             rotateTimer = 0f;
         }
 
-        // ⭐ 弾は2秒ごとに発射
         if (fireTimer >= fireInterval)
         {
             Shoot();
@@ -72,7 +70,6 @@ public class EnemyShooter : MonoBehaviour
             Quaternion.identity
         );
 
-        // ⭐ マズルフラッシュ生成（ここ追加！）
         if (muzzleFlashPrefab != null)
         {
             Instantiate(

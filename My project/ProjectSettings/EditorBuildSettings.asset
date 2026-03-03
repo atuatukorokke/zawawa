@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Game/StartScene.unity
+    path: Assets/Scenes/Game/aStartScene.unity
     guid: 0205d7bc965e9064c9e76190fb8bde89
   - enabled: 1
     path: Assets/Scenes/Game/Stage01.unity
@@ -18,10 +18,31 @@ EditorBuildSettings:
     path: Assets/Scenes/Game/Stage03.unity
     guid: 9ca0ef2256266b44ca7733589ec8b454
   - enabled: 1
-    path: Assets/Scenes/Game/BossScene.unity
+    path: Assets/Scenes/Game/Stage04.unity
+    guid: 5e03c8a92a1f6e948940394c9dbd5f8b
+  - enabled: 1
+    path: Assets/Scenes/Game/Stage05.unity
+    guid: 501ad92e436302e45b79d6c1f46e12f0
+  - enabled: 1
+    path: Assets/Scenes/Game/Stage06.unity
+    guid: 4a10c01f12d417b4cb1eb7bd7929686e
+  - enabled: 1
+    path: Assets/Scenes/Game/Stage07.unity
+    guid: c6cfff72f8a74794c9d857e631dc7ac1
+  - enabled: 1
+    path: Assets/Scenes/Game/Stage08.unity
+    guid: 20d30e61b5c9dfd4380e9099c1378302
+  - enabled: 1
+    path: Assets/Scenes/Game/Stage09.unity
+    guid: d5e62d9a7d9cda547801dfaa9d28e59c
+  - enabled: 1
+    path: Assets/Scenes/Game/Stage10.unity
+    guid: c5691977a34f70d4298f474cbd28f306
+  - enabled: 1
+    path: Assets/Scenes/Game/tBossScene.unity
     guid: c565a4371d47ecc49b4f9a4c39f6dc3b
   - enabled: 1
-    path: Assets/Scenes/Game/ClearScene.unity
+    path: Assets/Scenes/Game/zClearScene.unity
     guid: 0705a0018d9f76644beccacc8a7d972b
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4925032920771368283}
   m_Layer: 0
   m_Name: Square
-  m_TagString: Untagged
+  m_TagString: EnemyShield
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27,8 +27,8 @@ Transform:
   m_GameObject: {fileID: 1236294229151533758}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0.76, y: -0.02, z: -1.4667058}
-  m_LocalScale: {x: 1.23988, y: 0.17925976, z: 0.79671}
+  m_LocalPosition: {x: 0.76, y: -0.006, z: -1.4667058}
+  m_LocalScale: {x: 2.5193243, y: 1.3623511, z: 0.87943256}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7662669169537552944}
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 720000440436205499, guid: 79b3f97e25b688c449a0dd429433e4de, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -122,17 +122,17 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.0017746985, y: 0.011659246}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 0.94666666, y: 0.26833335}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.93966013, y: 0.24402675}
   m_EdgeRadius: 0
 --- !u!1 &6744601932799467389
 GameObject:
@@ -146,8 +146,7 @@ GameObject:
   - component: {fileID: 5263413639968808890}
   - component: {fileID: 5505200178103935946}
   - component: {fileID: 8926888574717041045}
-  - component: {fileID: 5920719516051699131}
-  - component: {fileID: 4474658510339851346}
+  - component: {fileID: 644001859633350758}
   m_Layer: 0
   m_Name: EnemyShield
   m_TagString: Enemy
@@ -165,7 +164,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 1.6640445, y: 3.7753046, z: 1}
-  m_LocalScale: {x: 0.6818, y: 0.6818, z: 0.6818}
+  m_LocalScale: {x: 0.9228845, y: 0.9228845, z: 0.9228845}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7597194080002875496}
@@ -216,7 +215,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.6415094, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -238,10 +237,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81e066f14cf44fc4d9f648b26c310449, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 2490399557829209723, guid: d0760d8dd7eaa2247996a136ff16914b, type: 3}
+  bulletPrefab: {fileID: 2490399557829209723, guid: 24833b2699ab61c459fc033cb8ffd21e, type: 3}
   fireInterval: 2
   rotateInterval: 0.1
-  shootOffset: 1.2
+  shootOffset: 1.6
   muzzleFlashPrefab: {fileID: 4961127315532690893, guid: 87c7d550745521345a278579a0bf9773, type: 3}
 --- !u!61 &8926888574717041045
 BoxCollider2D:
@@ -289,31 +288,15 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &5920719516051699131
+--- !u!114 &644001859633350758
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6744601932799467389}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ad40ef4412bc7c4c84bb1cea83b2f83, type: 3}
+  m_Script: {fileID: 11500000, guid: 8e8c0644e2eceab40a1f98caec064265, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 4
-  moveRange: 8
---- !u!114 &4474658510339851346
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6744601932799467389}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3b753113d7b85b43b601474d0513bfa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  radius: 2.5
-  rotateSpeed: 4

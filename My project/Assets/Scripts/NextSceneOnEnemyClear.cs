@@ -22,11 +22,13 @@ public class NextSceneOnEnemyClear : MonoBehaviour
     void Start()
     {
         initialized = true;
+        Debug.Log("初期化完了"+ enemyCount);
     }
 
     void OnEnemySpawned()
     {
         enemyCount++;
+        Debug.Log("敵出現 → 現在の敵数: " + enemyCount);
     }
 
     void OnEnemyDestroyed()
@@ -34,9 +36,11 @@ public class NextSceneOnEnemyClear : MonoBehaviour
         if (!initialized) return;
 
         enemyCount--;
+        Debug.Log("敵撃破 → 現在の敵数: " + enemyCount);
 
         if (enemyCount <= 0)
         {
+            Debug.Log("敵全滅！");
             initialized = false;
             closeAnim.PlayClose();
         }

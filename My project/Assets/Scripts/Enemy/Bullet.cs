@@ -71,10 +71,17 @@ public class Bullet : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        // 🛡 Shieldに当たったら反射
+        // 🛡 Shield（プレイヤー盾）
         if (collision.collider.CompareTag("Shield"))
         {
-            Reflect(collision);
+            Reflect(collision, true);   // 攻撃可能にする
+            return;
+        }
+
+        // 🔴 EnemyShield（敵の盾）
+        if (collision.collider.CompareTag("EnemyShield"))
+        {
+            Reflect(collision, false);  // ただ反射するだけ
             return;
         }
 
@@ -103,28 +110,25 @@ public class Bullet : MonoBehaviour
             }
         }
     }
-
-    void Reflect(Collision2D collision)
+    void Reflect(Collision2D collision, bool canAttack)
     {
-        if (!isReflected)
+        // 衝突面の法線
+        Vector2 normal = collision.contacts[0].normal;
+
+        // 反射方向計算
+        Vector2 newDir = Vector2.Reflect(
+            rb.linearVelocity.normalized,
+            normal
+        );
+
+        // スピード加速
+        speed = Mathf.Min(speed + speedUpAmount, maxSpeed);
+        rb.linearVelocity = newDir * speed;
+
+        if (canAttack)
         {
             isReflected = true;
-
-            // 衝突面の法線を取得
-            Vector2 normal = collision.contacts[0].normal;
-
-            // 入射ベクトルから正しく反射方向を計算
-            Vector2 newDir = Vector2.Reflect(
-                rb.linearVelocity.normalized,
-                normal
-            );
-
-            // スピードだけ管理（プレイヤー速度は使わない）
-            speed = Mathf.Min(speed + speedUpAmount, maxSpeed);
-
-            rb.linearVelocity = newDir * speed;
-
-            sr.color = Color.cyan;
+            sr.color = Color.cyan; // 色変更
         }
     }
 }

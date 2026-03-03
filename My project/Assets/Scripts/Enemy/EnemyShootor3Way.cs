@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[RequireComponent(typeof(EnemyDeathNotifier))] // ⭐ これ追加
 public class EnemyShooter3Way : MonoBehaviour
 {
     [Header("弾のプレハブ")]
@@ -7,6 +8,9 @@ public class EnemyShooter3Way : MonoBehaviour
 
     [Header("発射間隔（秒）")]
     [SerializeField] private float fireInterval = 2f;
+
+    [Header("向き更新間隔")]
+    [SerializeField] private float rotateInterval = 0.1f;
 
     [Header("弾のスピード")]
     [SerializeField] private float bulletSpeed = 5f;
@@ -18,6 +22,8 @@ public class EnemyShooter3Way : MonoBehaviour
     [SerializeField] private float angleOffset = 45f;
 
     private float fireTimer;
+    private float rotateTimer;
+
     private Transform player;
 
     void Start()
@@ -34,6 +40,13 @@ public class EnemyShooter3Way : MonoBehaviour
         if (player == null) return;
 
         fireTimer += Time.deltaTime;
+        rotateTimer += Time.deltaTime;
+
+        if (rotateTimer >= rotateInterval)
+        {
+            RotateToPlayer();
+            rotateTimer = 0f;
+        }
 
         if (fireTimer >= fireInterval)
         {
@@ -42,9 +55,20 @@ public class EnemyShooter3Way : MonoBehaviour
         }
     }
 
+    void RotateToPlayer()
+    {
+        Vector2 direction =
+            (player.position - transform.position).normalized;
+
+        float angle =
+            Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+
+        transform.rotation =
+            Quaternion.Euler(0, 0, angle);
+    }
+
     void Shoot3Way()
     {
-        // プレイヤー方向（基準）
         Vector2 baseDir =
             (player.position - transform.position).normalized;
 

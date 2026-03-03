@@ -9,6 +9,7 @@ TagManager:
   - Shield
   - Enemy
   - Gimmick
+  - EnemyShield
   layers:
   - Default
   - TransparentFX
