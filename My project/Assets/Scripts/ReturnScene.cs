@@ -8,7 +8,7 @@ public class ReturnScene : MonoBehaviour
         if (Input.anyKeyDown)
         {
             Debug.Log("キーが押された！ スタートシーンに戻るよ！");
-            SceneManager.LoadScene("StartScene");
+            SceneManager.LoadScene("aStartScene");
         }
     }
 }

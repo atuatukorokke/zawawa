@@ -46,6 +46,6 @@ public class RetryUI : MonoBehaviour
     {
         // "StartScene" はタイトルシーンの名前
         // 自分のプロジェクトのシーン名に合わせて変更すること
-        SceneManager.LoadScene("StartScene");
+        SceneManager.LoadScene("aStartScene");
     }
 }

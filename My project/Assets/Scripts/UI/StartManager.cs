@@ -6,6 +6,6 @@ public class StartManager : MonoBehaviour
     public void GoToStart()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("StartScene"); // ←スタートシーン名に変更
+        SceneManager.LoadScene("aStartScene"); // 竊舌せ繧ｿ繝ｼ繝医す繝ｼ繝ｳ蜷阪↓螟画峩
     }
 }
