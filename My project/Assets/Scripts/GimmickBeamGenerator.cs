@@ -4,7 +4,7 @@ public class GimmickBeamGenerator : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     [SerializeField] private GameObject gimmickBeam;
-    float span = 3.0f;
+    float span = 1.0f;
     float delta = 0;
     private GameObject spawnedObject;
     private bool fire = false;
