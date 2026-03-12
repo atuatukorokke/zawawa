@@ -5,6 +5,6 @@ public class ClearClose : MonoBehaviour
 {
     public void SceneClose()
     {
-        SceneManager.LoadScene("StartScene");
+        SceneManager.LoadScene("aStartScene");
     }
 }

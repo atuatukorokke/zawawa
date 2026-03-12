@@ -40,7 +40,7 @@ public class PlayerHealth : MonoBehaviour
             Destroy(gameObject);
             //クリアシーンの処理
             //TimeCounter.Instance.StopTimer();
-            SceneManager.LoadScene("ClearScene");
+            SceneManager.LoadScene("zClearScene");
         }
     }
     void OnCollisionEnter2D(Collision2D collision)
@@ -51,14 +51,5 @@ public class PlayerHealth : MonoBehaviour
             //Debug.Log("Damage"); 
         }
     }
-    // ボスのHPが0になるときの処理に以下のコードを追加してほしい
-    // ボスがやられるとタイムカウンターを止めて、結果画面に遷移するコード
-    //    if (hp <= 0)　HPが0以下になったとき
-    //      HPの変数はこのスクリプト内で管理しているcurrentHpなので、
-    //      if (currentHp <= 0)　を条件としてかいといてください　　　　見づらくてごめん
-    //{
-    //    TimeCounter.Instance.StopTimer();
-    //    SceneManager.LoadScene("Result");
-    //      
-    //}
+  
 }
